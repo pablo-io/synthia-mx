@@ -1,0 +1,217 @@
+---
+// ─── Casos de Éxito ───────────────────────────────────────────────────
+// Agrega, quita o edita entradas aquí para actualizar el carrusel.
+// `image`: reemplaza los placeholders con rutas reales en /public/
+// `href`: enlace al detalle de cada caso
+const casos = [
+  {
+    title: 'Vigilante - Conteo Rápido Electoral',
+    desc:  'Basada en IA, nuestra solución permite realizar elecciones nacionales y reportar resultados en tiempo real sin intervención humana (Usada en Elecciones México 2018).',
+    image: 'https://placehold.co/600x400/072146/61CE70?text=Vigilante',
+    href:  '#',
+  },
+  {
+    title: 'Encuestador Inteligente',
+    desc:  'Realice cualquier tipo de encuesta sin interacción humana. Nuestro encuestador virtual reconoce respuestas con cualquier gesto de mano o cuerpo (ej: pulgar arriba).',
+    image: 'https://placehold.co/600x400/071F3B/226AF8?text=Encuestador',
+    href:  '#',
+  },
+  {
+    title: 'Asistente Inteligente',
+    desc:  'Asistente virtual que permite, a través de preguntas en lenguaje natural escrito o hablado, encontrar cualquier información en la base de conocimiento de una organización.',
+    image: 'https://placehold.co/600x400/0014B0/61CE70?text=Asistente',
+    href:  '#',
+  },
+  {
+    title: 'Xcovery (OCR + IA)',
+    desc:  'Sistema de extracción, validación y clasificación de documentos. Automatiza procesos que requieren papeleo manual: facturas, cuentas por pagar, documentos propios, etc.',
+    image: 'https://placehold.co/600x400/072146/226AF8?text=Xcovery',
+    href:  '#',
+  },
+  {
+    title: 'Visual Search',
+    desc:  'Motor de búsqueda con visión artificial capaz de realizar búsquedas a partir de imágenes previamente almacenadas o tomadas al momento de la búsqueda.',
+    image: 'https://placehold.co/600x400/071F3B/61CE70?text=Visual+Search',
+    href:  '#',
+  },
+  {
+    title: 'AI SEI - Evaluación Médica Inteligente',
+    desc:  'Sistema de análisis de imágenes médicas (tomografías, radiografías, etc.) capaz de asistir un diagnóstico médico de forma casi inmediata.',
+    image: 'https://placehold.co/600x400/0014B0/226AF8?text=AI+SEI',
+    href:  '#',
+  },
+  {
+    title: 'QA Virtual Inspector',
+    desc:  'Inspector virtual entrenado con IA para examinar líneas de producción, servicios, productos o partes en búsqueda de defectos o anomalías en los procesos.',
+    image: 'https://placehold.co/600x400/072146/61CE70?text=QA+Inspector',
+    href:  '#',
+  },
+  {
+    title: 'Alerta Rosa',
+    desc:  'Modelos de análisis predictivo que, con base en grandes volúmenes de información, realizan pronósticos sobre dónde, cuándo y cómo se cometen agresiones sexuales en la CDMX.',
+    image: 'https://placehold.co/600x400/071F3B/226AF8?text=Alerta+Rosa',
+    href:  '#',
+  },
+  {
+    title: 'Smart Food',
+    desc:  'Autoservicio de bebidas o alimentos que utiliza IA para cobrar y mostrar la información nutricional de los productos seleccionados.',
+    image: 'https://placehold.co/600x400/0014B0/61CE70?text=Smart+Food',
+    href:  '#',
+  },
+];
+---
+
+<section id="casos" class="bg-synthia-navy-dark py-20" aria-label="Casos de Éxito">
+
+  <!-- Encabezado -->
+  <div class="container-synthia text-center mb-14">
+    <h2 class="text-4xl md:text-5xl font-extrabold text-white/20 uppercase tracking-widest">
+      Casos de Éxito
+    </h2>
+    <span class="title-divider"></span>
+    <p class="text-blue-100 text-base md:text-lg max-w-2xl mx-auto mt-4">
+      Conoce algunas de las soluciones que nuestros expertos han desarrollado para diversas industrias:
+    </p>
+  </div>
+
+  <!-- Carrusel wrapper -->
+  <div class="relative overflow-hidden">
+
+    <!-- Track deslizable -->
+    <div
+      id="casos-track"
+      class="flex transition-transform duration-500 ease-in-out"
+      aria-live="polite"
+    >
+      {casos.map((caso, i) => (
+        <div
+          class="casos-slide flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-4"
+          data-index={i}
+        >
+          <!-- Card -->
+          <article class="relative rounded-lg overflow-hidden group h-72 md:h-80">
+            <!-- Imagen de fondo -->
+            <img
+              src={caso.image}
+              alt={caso.title}
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+            <!-- Overlay permanente -->
+            <div class="absolute inset-0 bg-synthia-navy/60 group-hover:bg-synthia-navy/75 transition-colors duration-300"></div>
+
+            <!-- Contenido -->
+            <div class="relative z-10 flex flex-col justify-end h-full p-6">
+              <h3 class="text-white font-bold text-xl leading-tight mb-2">
+                {caso.title}
+              </h3>
+              <span class="block w-10 h-0.5 bg-synthia-green mb-3"></span>
+              <!-- Descripción visible en hover -->
+              <p class="text-blue-100 text-sm leading-relaxed mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-3">
+                {caso.desc}
+              </p>
+              <a
+                href={caso.href}
+                class="btn-blue self-start text-sm px-5 py-2"
+                aria-label={`Ver más sobre ${caso.title}`}
+              >
+                Conoce más
+              </a>
+            </div>
+          </article>
+        </div>
+      ))}
+    </div>
+
+    <!-- Flechas de navegación -->
+    <button
+      id="casos-prev"
+      aria-label="Slide anterior"
+      class="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-synthia-navy/80 hover:bg-synthia-blue text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors shadow-lg"
+    >
+      ‹
+    </button>
+    <button
+      id="casos-next"
+      aria-label="Siguiente slide"
+      class="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-synthia-navy/80 hover:bg-synthia-blue text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors shadow-lg"
+    >
+      ›
+    </button>
+
+  </div>
+
+  <!-- Puntos de navegación -->
+  <div class="flex justify-center gap-2 mt-8" role="tablist" aria-label="Navegación de casos">
+    {casos.map((_, i) => (
+      <button
+        class:list={[
+          'casos-dot w-2.5 h-2.5 rounded-full transition-all duration-300 focus:outline-none',
+          i === 0 ? 'bg-synthia-green scale-125' : 'bg-white/30',
+        ]}
+        data-dot={i}
+        role="tab"
+        aria-selected={i === 0}
+        aria-label={`Ir al caso ${i + 1}`}
+      />
+    ))}
+  </div>
+
+</section>
+
+<script>
+  // ─── Carrusel Casos de Éxito ───────────────────────────────────────
+  const track   = document.getElementById('casos-track') as HTMLElement;
+  const dots    = document.querySelectorAll<HTMLElement>('.casos-dot');
+  const btnPrev = document.getElementById('casos-prev');
+  const btnNext = document.getElementById('casos-next');
+  const total   = document.querySelectorAll('.casos-slide').length;
+
+  // Cuántos slides mostrar según ancho de pantalla
+  function perView(): number {
+    if (window.innerWidth >= 1024) return 3;
+    if (window.innerWidth >= 768)  return 2;
+    return 1;
+  }
+
+  let current = 0;
+
+  function maxIndex() {
+    return total - perView();
+  }
+
+  function updateDots(index: number) {
+    dots.forEach((dot, i) => {
+      const active = i === index;
+      dot.classList.toggle('bg-synthia-green', active);
+      dot.classList.toggle('scale-125', active);
+      dot.classList.toggle('bg-white/30', !active);
+      dot.setAttribute('aria-selected', String(active));
+    });
+  }
+
+  function goTo(index: number) {
+    current = Math.max(0, Math.min(index, maxIndex()));
+    const slideWidth = 100 / perView();
+    track.style.transform = `translateX(-${current * slideWidth}%)`;
+    updateDots(current);
+  }
+
+  btnPrev?.addEventListener('click', () => goTo(current - 1));
+  btnNext?.addEventListener('click', () => goTo(current + 1));
+  dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+  // Recalcular al redimensionar
+  window.addEventListener('resize', () => goTo(Math.min(current, maxIndex())));
+
+  // Ajustar ancho inicial de cada slide via CSS
+  function setSlideWidths() {
+    const pv = perView();
+    document.querySelectorAll<HTMLElement>('.casos-slide').forEach(s => {
+      s.style.width = `${100 / pv}%`;
+    });
+  }
+
+  setSlideWidths();
+  window.addEventListener('resize', setSlideWidths);
+</script>

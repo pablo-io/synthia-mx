@@ -1,0 +1,43 @@
+---
+// ─── Partners ─────────────────────────────────────────────────────────
+// Edita este array para agregar o quitar partners.
+const partners = [
+  { name: 'AWS',       src: 'https://synthia.mx/wp-content/uploads/2021/08/AWS.webp' },
+  { name: 'Microsoft', src: 'https://synthia.mx/wp-content/uploads/2021/08/microsoft-1.webp' },
+  { name: 'Google Cloud', src: 'https://synthia.mx/wp-content/uploads/2021/08/googlee-1.webp' },
+  { name: 'Huawei',    src: 'https://synthia.mx/wp-content/uploads/2021/08/Huawei-Logo.wine_-1024x319-1.webp' },
+];
+---
+
+<section
+  id="partners"
+  class="relative bg-synthia-navy-dark py-24"
+  aria-label="Partners"
+>
+  <!-- Fondo decorativo: grid de puntos -->
+  <div
+    class="absolute inset-0 opacity-10"
+    style="background-image: radial-gradient(circle, #226AF8 1px, transparent 1px); background-size: 32px 32px;"
+    aria-hidden="true"
+  ></div>
+
+  <div class="container-synthia relative z-10 text-center">
+    <h2 class="text-4xl md:text-5xl font-extrabold text-white/20 uppercase tracking-widest mb-12">
+      Partners
+    </h2>
+
+    <!-- Grid de logos -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 items-center justify-items-center">
+      {partners.map(p => (
+        <div class="bg-synthia-blue/20 hover:bg-synthia-blue/40 transition-colors rounded-lg p-6 w-full flex items-center justify-center h-28">
+          <img
+            src={p.src}
+            alt={p.name}
+            class="max-h-16 max-w-full object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
+            loading="lazy"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

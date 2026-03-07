@@ -1,0 +1,73 @@
+---
+// ─── Medios de Comunicación ───────────────────────────────────────────
+// Agrega o quita medios en este array.
+const medios = [
+  { name: 'Ibero 90.9',     src: 'https://synthia.mx/wp-content/uploads/2021/05/Ibero-90.9-1-150x150.png' },
+  { name: 'Radio UNAM',     src: 'https://synthia.mx/wp-content/uploads/2021/05/Radio-UNAM-1-150x150.png' },
+  { name: 'Notimex NTX',    src: 'https://synthia.mx/wp-content/uploads/2021/05/Notimex-1-150x150.png' },
+  { name: 'Forbes México',  src: 'https://synthia.mx/wp-content/uploads/2021/05/Forbes-mexico-1-150x150.png' },
+  { name: 'Mundo Ejecutivo',src: 'https://synthia.mx/wp-content/uploads/2021/05/Mundo-Ejecutivo-1-150x150.png' },
+  { name: 'Expansión CNN',  src: 'https://synthia.mx/wp-content/uploads/2021/05/Expansion-CNN-1-150x150.png' },
+  { name: 'Informador.mx',  src: 'https://synthia.mx/wp-content/uploads/2021/05/Informador.mx_-1-150x150.png' },
+  { name: 'El Economista',  src: 'https://synthia.mx/wp-content/uploads/2021/05/El-economista-1-150x150.png' },
+  { name: 'CNN',            src: 'https://synthia.mx/wp-content/uploads/2021/05/CNN-150x150.png' },
+  { name: 'Uno TV',         src: 'https://synthia.mx/wp-content/uploads/2021/05/Uno-Tv-1-150x150.png' },
+  { name: '20 Minutos',     src: 'https://synthia.mx/wp-content/uploads/2021/05/20-minutos-150x150.png' },
+  { name: 'MSN',            src: 'https://synthia.mx/wp-content/uploads/2021/05/MSN-1-150x150.png' },
+];
+---
+
+<section id="medios" class="bg-synthia-blue py-20" aria-label="Medios de Comunicación">
+
+  <div class="container-synthia text-center mb-12">
+    <h2 class="text-4xl md:text-5xl font-extrabold uppercase">
+      <span class="text-white/20">Medios</span>
+    </h2>
+    <p class="text-white font-bold text-xl uppercase tracking-wider mt-1">de Comunicación</p>
+    <span class="title-divider"></span>
+    <p class="text-blue-100 mt-4 text-base">
+      Nuestro trabajo ha sido publicado por diferentes medios de comunicación
+    </p>
+  </div>
+
+  <!-- Marquee infinito con CSS -->
+  <div class="overflow-hidden" aria-hidden="true">
+    <div class="medios-track flex items-center gap-8 w-max">
+      {[...medios, ...medios].map(m => (
+        <div class="flex-shrink-0 w-28 h-28 bg-white/10 rounded-lg flex items-center justify-center p-3
+                    hover:bg-white/20 transition-colors duration-300">
+          <img
+            src={m.src}
+            alt={m.name}
+            class="max-h-20 max-w-full object-contain filter brightness-0 invert"
+            loading="lazy"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+
+</section>
+
+<style>
+  .medios-track {
+    animation: marquee-medios 28s linear infinite;
+  }
+
+  .medios-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee-medios {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .medios-track {
+      animation: none;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+</style>

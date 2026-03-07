@@ -1,0 +1,64 @@
+---
+// ─── Nuestras Soluciones ──────────────────────────────────────────────
+// Edita este array para actualizar las tarjetas de productos.
+const soluciones = [
+  {
+    title: 'Xcovery AI',
+    image: 'https://placehold.co/600x400/072146/61CE70?text=Xcovery+AI',
+    href:  'https://synthia.mx/contacto/',
+  },
+  {
+    title: 'Xray AI',
+    image: 'https://placehold.co/600x400/071F3B/226AF8?text=Xray+AI',
+    href:  'https://synthia.mx/contacto/',
+  },
+  {
+    title: 'AI for Healthcare',
+    image: 'https://placehold.co/600x400/0014B0/61CE70?text=AI+for+Healthcare',
+    href:  'https://synthia.mx/contacto/',
+  },
+];
+---
+
+<section id="soluciones" class="bg-synthia-blue py-20" aria-label="Nuestras Soluciones">
+
+  <div class="container-synthia">
+    <!-- Encabezado -->
+    <div class="text-center mb-14">
+      <p class="text-blue-200 text-sm font-semibold uppercase tracking-widest mb-1">Nuestras</p>
+      <h2 class="text-4xl md:text-5xl font-extrabold text-white uppercase">Soluciones</h2>
+      <span class="title-divider"></span>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {soluciones.map(sol => (
+        <article class="relative rounded-xl overflow-hidden group h-80 shadow-xl">
+          <!-- Imagen -->
+          <img
+            src={sol.image}
+            alt={sol.title}
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+          <!-- Overlay gradiente -->
+          <div class="absolute inset-0 bg-gradient-to-t from-synthia-navy via-synthia-navy/50 to-transparent"></div>
+
+          <!-- Contenido -->
+          <div class="relative z-10 flex flex-col justify-end h-full p-6">
+            <h3 class="text-white font-bold text-2xl mb-2">{sol.title}</h3>
+            <span class="block w-8 h-0.5 bg-synthia-green mb-4"></span>
+            <a
+              href={sol.href}
+              class="btn-blue self-start text-sm"
+              aria-label={`Ver más sobre ${sol.title}`}
+            >
+              Ver más
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+
+</section>

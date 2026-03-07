@@ -1,0 +1,70 @@
+---
+// ─── Clientes ─────────────────────────────────────────────────────────
+// Agrega o quita logos en este array. El carrusel se genera automáticamente.
+const clientes = [
+  { name: 'ONU',          src: 'https://synthia.mx/wp-content/uploads/2021/05/ONU.png' },
+  { name: 'Salinas',      src: 'https://synthia.mx/wp-content/uploads/2021/05/Salinas.png' },
+  { name: 'SAT',          src: 'https://synthia.mx/wp-content/uploads/2021/05/SAT.png' },
+  { name: 'SEGOB',        src: 'https://synthia.mx/wp-content/uploads/2021/05/SEGOB.png' },
+  { name: 'Televisa',     src: 'https://synthia.mx/wp-content/uploads/2021/05/Televisa-copia.png' },
+  { name: 'Bienestar',    src: 'https://synthia.mx/wp-content/uploads/2021/05/Bienestar.png' },
+  { name: 'BIVA',         src: 'https://synthia.mx/wp-content/uploads/2021/05/BIVA.png' },
+  { name: 'GNP',          src: 'https://synthia.mx/wp-content/uploads/2021/05/GNP.png' },
+  { name: 'Grupo BMV',    src: 'https://synthia.mx/wp-content/uploads/2021/05/Grupo-BMV.png' },
+  { name: 'INEGI',        src: 'https://synthia.mx/wp-content/uploads/2021/05/INEGI.png' },
+  { name: 'Integraciones',src: 'https://synthia.mx/wp-content/uploads/2021/05/Integraciones-.png' },
+  { name: 'MAXCOM',       src: 'https://synthia.mx/wp-content/uploads/2021/05/MAXCOM.png' },
+  { name: 'MCB',          src: 'https://synthia.mx/wp-content/uploads/2021/05/MCB.png' },
+];
+---
+
+<section id="clientes" class="bg-white py-20" aria-label="Nuestros Clientes">
+
+  <div class="container-synthia text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-synthia-navy uppercase">
+      Nuestros Clientes
+    </h2>
+    <span class="block w-24 h-1 bg-synthia-green mx-auto my-4"></span>
+  </div>
+
+  <!-- Marquee infinito con CSS -->
+  <div class="overflow-hidden" aria-hidden="true">
+    <div class="marquee-track flex items-center gap-10 w-max">
+      <!-- Logos × 2 para el loop infinito -->
+      {[...clientes, ...clientes].map((c, i) => (
+        <div class="flex-shrink-0 w-32 h-20 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+          <img
+            src={c.src}
+            alt={c.name}
+            class="max-h-16 max-w-full object-contain"
+            loading="lazy"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+
+</section>
+
+<style>
+  .marquee-track {
+    animation: marquee 30s linear infinite;
+  }
+
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+</style>

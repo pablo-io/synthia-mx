@@ -16,17 +16,18 @@ const social = [
 ];
 ---
 
-<section id="contacto" class="bg-gray-100 py-20" aria-label="Contacto">
+<section id="contacto" class="bg-synthia-navy py-20" aria-label="Contacto">
 
   <div class="container-synthia">
 
     <!-- Título -->
-    <h2 class="text-4xl md:text-5xl font-extrabold text-synthia-navy text-center uppercase mb-12">
+    <h2 class="text-4xl md:text-5xl font-extrabold text-white text-center uppercase mb-2">
       Contacto
     </h2>
+    <span class="title-divider"></span>
 
     <!-- Card del formulario -->
-    <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-8 md:p-12">
+    <div class="max-w-2xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 p-8 md:p-12 mt-10">
       <form
         action={info.formAction}
         method="POST"
@@ -42,9 +43,9 @@ const social = [
             type="text"
             placeholder="Nombre"
             required
-            class="w-full border border-gray-300 rounded-lg px-4 py-3 text-synthia-navy
-                   placeholder-gray-400 focus:outline-none focus:border-synthia-blue
-                   focus:ring-1 focus:ring-synthia-blue transition"
+            class="w-full bg-white/10 border border-white/30 rounded-lg px-4 py-3 text-white
+                   placeholder-blue-200 focus:outline-none focus:border-synthia-green
+                   focus:ring-1 focus:ring-synthia-green transition"
           />
         </div>
 
@@ -57,9 +58,9 @@ const social = [
             type="email"
             placeholder="Email"
             required
-            class="w-full border border-gray-300 rounded-lg px-4 py-3 text-synthia-navy
-                   placeholder-gray-400 focus:outline-none focus:border-synthia-blue
-                   focus:ring-1 focus:ring-synthia-blue transition"
+            class="w-full bg-white/10 border border-white/30 rounded-lg px-4 py-3 text-white
+                   placeholder-blue-200 focus:outline-none focus:border-synthia-green
+                   focus:ring-1 focus:ring-synthia-green transition"
           />
         </div>
 
@@ -72,9 +73,9 @@ const social = [
             placeholder="Mensaje"
             required
             rows="6"
-            class="w-full border border-gray-300 rounded-lg px-4 py-3 text-synthia-navy
-                   placeholder-gray-400 focus:outline-none focus:border-synthia-blue
-                   focus:ring-1 focus:ring-synthia-blue transition resize-none"
+            class="w-full bg-white/10 border border-white/30 rounded-lg px-4 py-3 text-white
+                   placeholder-blue-200 focus:outline-none focus:border-synthia-green
+                   focus:ring-1 focus:ring-synthia-green transition resize-none"
           ></textarea>
         </div>
 
@@ -93,7 +94,7 @@ const social = [
 
       <!-- Redes -->
       <div>
-        <h3 class="text-synthia-navy font-bold text-lg uppercase mb-4">Redes</h3>
+        <h3 class="text-white font-bold text-lg uppercase mb-4">Redes</h3>
         <div class="flex justify-center gap-5">
           {social.map(s => (
             <a
@@ -101,7 +102,7 @@ const social = [
               target="_blank"
               rel="noopener noreferrer"
               aria-label={s.label}
-              class="text-synthia-navy hover:text-synthia-blue transition-colors"
+              class="text-blue-200 hover:text-synthia-green transition-colors"
               set:html={s.icon}
             />
           ))}
@@ -110,10 +111,10 @@ const social = [
 
       <!-- Hablemos -->
       <div>
-        <h3 class="text-synthia-navy font-bold text-lg uppercase mb-4">Hablemos</h3>
+        <h3 class="text-white font-bold text-lg uppercase mb-4">Hablemos</h3>
         <a
           href={`tel:${info.telefono.replace(/\D/g,'')}`}
-          class="text-synthia-navy text-xl font-semibold hover:text-synthia-blue transition-colors"
+          class="text-blue-200 text-xl font-semibold hover:text-synthia-green transition-colors"
         >
           {info.telefono}
         </a>

@@ -1,0 +1,51 @@
+/* Importar Poppins desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-white antialiased;
+  }
+
+  /* Títulos de sección en mayúsculas */
+  h1, h2 {
+    @apply font-bold tracking-wide;
+  }
+}
+
+@layer components {
+  /* Contenedor centrado reutilizable */
+  .container-synthia {
+    @apply max-w-content mx-auto px-6;
+  }
+
+  /* Divisor decorativo verde (línea bajo títulos) */
+  .title-divider {
+    @apply block w-24 h-1 bg-synthia-green mx-auto my-4;
+  }
+
+  /* Botón CTA verde "Conoce más" */
+  .btn-green {
+    @apply inline-flex items-center gap-2 bg-synthia-green text-white font-semibold
+           px-8 py-3 rounded transition-opacity hover:opacity-90;
+  }
+
+  /* Botón CTA oscuro "Contacto" */
+  .btn-navy {
+    @apply inline-flex items-center gap-2 bg-synthia-navy text-white font-semibold
+           px-8 py-3 rounded transition-opacity hover:opacity-90;
+  }
+
+  /* Botón CTA azul "Ver más" */
+  .btn-blue {
+    @apply inline-flex items-center gap-2 bg-synthia-blue text-white font-semibold
+           px-6 py-2 rounded transition-opacity hover:opacity-90;
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:synthia.mx)",
+      "Bash(npm create astro@latest . -- --template minimal --no-install --no-git)",
+      "Bash(cmd.exe /c \"where node & where npm & where bun & where pnpm\")",
+      "Bash(cmd.exe /c \"node --version\")",
+      "Bash(cmd.exe /c \"npm --version\")",
+      "Bash(powershell.exe -Command \"Get-Command node,npm,bun,pnpm,yarn -ErrorAction SilentlyContinue | Select-Object Name,Source\")",
+      "Bash(powershell.exe -Command \"winget --version\")",
+      "Bash(powershell.exe -Command \"node --version; npm --version\")",
+      "Bash(powershell.exe -Command \"Get-ChildItem ''C:\\\\Program Files\\\\nodejs'' -ErrorAction SilentlyContinue | Select-Object Name\")"
+    ]
+  }
+}

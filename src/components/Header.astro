@@ -73,6 +73,13 @@ const navLinks = [
   const iconOpen  = document.getElementById('icon-open');
   const iconClose = document.getElementById('icon-close');
 
+  function closeMenu() {
+    menu?.classList.add('hidden');
+    iconOpen?.classList.remove('hidden');
+    iconClose?.classList.add('hidden');
+    toggle?.setAttribute('aria-expanded', 'false');
+  }
+
   toggle?.addEventListener('click', () => {
     const isOpen = !menu?.classList.contains('hidden');
     menu?.classList.toggle('hidden', isOpen);
@@ -80,4 +87,15 @@ const navLinks = [
     iconClose?.classList.toggle('hidden', isOpen);
     toggle.setAttribute('aria-expanded', String(!isOpen));
   });
+
+  // Cerrar menú al hacer click en un enlace
+  menu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Sombra en el header al hacer scroll
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header?.classList.toggle('shadow-md', window.scrollY > 10);
+  }, { passive: true });
 </script>

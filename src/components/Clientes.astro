@@ -18,10 +18,10 @@ const clientes = [
 ];
 ---
 
-<section id="clientes" class="bg-white py-20" aria-label="Nuestros Clientes">
+<section id="clientes" class="bg-synthia-navy py-20" aria-label="Nuestros Clientes">
 
   <div class="container-synthia text-center mb-12">
-    <h2 class="text-3xl md:text-4xl font-extrabold text-synthia-navy uppercase">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-white uppercase">
       Nuestros Clientes
     </h2>
     <span class="block w-24 h-1 bg-synthia-green mx-auto my-4"></span>
@@ -31,12 +31,13 @@ const clientes = [
   <div class="overflow-hidden" aria-hidden="true">
     <div class="marquee-track flex items-center gap-10 w-max">
       <!-- Logos × 2 para el loop infinito -->
-      {[...clientes, ...clientes].map((c, i) => (
-        <div class="flex-shrink-0 w-32 h-20 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+      {[...clientes, ...clientes].map((c) => (
+        <div class="flex-shrink-0 w-36 h-20 flex items-center justify-center
+                    opacity-70 hover:opacity-100 transition-opacity duration-300">
           <img
             src={c.src}
             alt={c.name}
-            class="max-h-16 max-w-full object-contain"
+            class="max-h-14 max-w-full object-contain filter brightness-0 invert"
             loading="lazy"
           />
         </div>

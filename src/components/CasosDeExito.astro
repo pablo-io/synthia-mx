@@ -61,15 +61,21 @@ const casos = [
 ];
 ---
 
-<section id="casos" class="bg-synthia-navy-dark py-20" aria-label="Casos de Éxito">
+<section id="casos" class="relative overflow-hidden py-20" aria-label="Casos de Éxito">
+
+  <!-- Halo sutil desde la derecha -->
+  <div
+    class="absolute inset-0 pointer-events-none"
+    style="background: radial-gradient(ellipse 50% 60% at 85% 40%, rgba(34,106,248,0.15) 0%, transparent 70%)"
+  ></div>
 
   <!-- Encabezado -->
-  <div class="container-synthia text-center mb-14">
+  <div class="relative container-synthia text-center mb-14">
     <h2 class="text-4xl md:text-5xl font-extrabold text-white/20 uppercase tracking-widest">
       Casos de Éxito
     </h2>
     <span class="title-divider"></span>
-    <p class="text-blue-100 text-base md:text-lg max-w-2xl mx-auto mt-4">
+    <p class="text-white/70 text-base md:text-lg max-w-2xl mx-auto mt-4">
       Conoce algunas de las soluciones que nuestros expertos han desarrollado para diversas industrias:
     </p>
   </div>
@@ -77,7 +83,7 @@ const casos = [
   <!-- Carrusel wrapper -->
   <div class="relative overflow-hidden">
 
-    <!-- Track deslizable -->
+    <!-- Track deslizable — contenedor relativo para flechas -->
     <div
       id="casos-track"
       class="flex transition-transform duration-500 ease-in-out"

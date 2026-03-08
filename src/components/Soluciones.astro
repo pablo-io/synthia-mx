@@ -20,12 +20,18 @@ const soluciones = [
 ];
 ---
 
-<section id="soluciones" class="bg-synthia-blue py-20" aria-label="Nuestras Soluciones">
+<section id="soluciones" class="relative overflow-hidden py-20" aria-label="Nuestras Soluciones">
 
-  <div class="container-synthia">
+  <!-- Halo centrado -->
+  <div
+    class="absolute inset-0 pointer-events-none"
+    style="background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(34,106,248,0.18) 0%, transparent 70%)"
+  ></div>
+
+  <div class="relative container-synthia">
     <!-- Encabezado -->
     <div class="text-center mb-14">
-      <p class="text-blue-200 text-sm font-semibold uppercase tracking-widest mb-1">Nuestras</p>
+      <p class="text-synthia-blue text-sm font-semibold uppercase tracking-widest mb-1">Nuestras</p>
       <h2 class="text-4xl md:text-5xl font-extrabold text-white uppercase">Soluciones</h2>
       <span class="title-divider"></span>
     </div>

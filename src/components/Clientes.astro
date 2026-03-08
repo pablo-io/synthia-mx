@@ -18,9 +18,15 @@ const clientes = [
 ];
 ---
 
-<section id="clientes" class="bg-synthia-navy py-20" aria-label="Nuestros Clientes">
+<section id="clientes" class="relative overflow-hidden py-20" aria-label="Nuestros Clientes">
 
-  <div class="container-synthia text-center mb-12">
+  <!-- Halo sutil centrado -->
+  <div
+    class="absolute inset-0 pointer-events-none"
+    style="background: radial-gradient(ellipse 80% 50% at 50% 50%, rgba(34,106,248,0.12) 0%, transparent 70%)"
+  ></div>
+
+  <div class="relative container-synthia text-center mb-12">
     <h2 class="text-3xl md:text-4xl font-extrabold text-white uppercase">
       Nuestros Clientes
     </h2>

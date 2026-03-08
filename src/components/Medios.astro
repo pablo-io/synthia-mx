@@ -17,15 +17,21 @@ const medios = [
 ];
 ---
 
-<section id="medios" class="bg-synthia-blue py-20" aria-label="Medios de Comunicación">
+<section id="medios" class="relative overflow-hidden py-20" aria-label="Medios de Comunicación">
 
-  <div class="container-synthia text-center mb-12">
+  <!-- Halo sutil izquierdo -->
+  <div
+    class="absolute inset-0 pointer-events-none"
+    style="background: radial-gradient(ellipse 55% 60% at 20% 50%, rgba(34,106,248,0.14) 0%, transparent 70%)"
+  ></div>
+
+  <div class="relative container-synthia text-center mb-12">
     <h2 class="text-4xl md:text-5xl font-extrabold uppercase">
       <span class="text-white/20">Medios</span>
     </h2>
     <p class="text-white font-bold text-xl uppercase tracking-wider mt-1">de Comunicación</p>
     <span class="title-divider"></span>
-    <p class="text-blue-100 mt-4 text-base">
+    <p class="text-white/70 mt-4 text-base">
       Nuestro trabajo ha sido publicado por diferentes medios de comunicación
     </p>
   </div>

@@ -31,29 +31,37 @@
     @apply block w-24 h-1 bg-synthia-green mx-auto my-4;
   }
 
-  /* Botón CTA verde */
+  /* Botón CTA verde — ghost */
   .btn-green {
     @apply inline-flex items-center gap-2 font-semibold px-8 py-3 rounded-full
-           text-white border border-synthia-green/40
+           text-synthia-green bg-transparent border border-synthia-green/50
            transition-all duration-200
-           hover:shadow-[0_0_18px_rgba(97,206,112,0.45)] hover:border-synthia-green/70;
-    background: linear-gradient(135deg, #61CE70, #3aaa50);
+           hover:text-white hover:border-synthia-green
+           hover:shadow-[0_0_20px_rgba(97,206,112,0.4)];
   }
 
-  /* Botón CTA oscuro */
+  /* Botón CTA oscuro — ghost */
   .btn-navy {
     @apply inline-flex items-center gap-2 font-semibold px-8 py-3 rounded-full
-           text-white border border-white/20
+           text-white bg-transparent border border-white/30
            transition-all duration-200
-           hover:bg-white/10 hover:border-white/40;
+           hover:border-white/60 hover:bg-white/10;
   }
 
-  /* Botón CTA azul */
+  /* Botón CTA azul — sólido (para acciones primarias) */
+  .btn-solid-blue {
+    @apply inline-flex items-center gap-2 font-semibold px-6 py-2 rounded-full
+           text-white bg-synthia-blue border border-synthia-blue
+           transition-all duration-200
+           hover:bg-synthia-blue/80 hover:shadow-[0_0_20px_rgba(34,106,248,0.5)];
+  }
+
+  /* Botón CTA azul — ghost */
   .btn-blue {
     @apply inline-flex items-center gap-2 font-semibold px-6 py-2 rounded-full
-           text-white border border-synthia-blue/40
+           text-synthia-blue bg-transparent border border-synthia-blue/50
            transition-all duration-200
-           hover:shadow-[0_0_18px_rgba(34,106,248,0.5)] hover:border-synthia-blue/70;
-    background: linear-gradient(135deg, #226AF8, #0014B0);
+           hover:text-white hover:border-synthia-blue
+           hover:shadow-[0_0_20px_rgba(34,106,248,0.45)];
   }
 }

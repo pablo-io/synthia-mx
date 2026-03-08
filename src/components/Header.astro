@@ -1,101 +1,44 @@
 ---
-// Navegación del sitio.
-// Actualmente el menú original sólo tiene "Contacto".
-// Agrega más items en el array `navLinks` para extender el menú.
-const navLinks = [
-  { label: 'Contacto', href: '#contacto' },
-];
+// Header minimalista flotante.
+// Transparente en top, oscuro con blur al hacer scroll.
 ---
 
 <header
   id="header"
-  class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm transition-shadow duration-300"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
 >
   <div class="container-synthia flex items-center justify-between h-16">
 
     <!-- Logo -->
-    <a href="/" class="flex items-center gap-2 shrink-0">
+    <a href="/" class="flex items-center shrink-0">
       <img
         src="https://synthia.mx/wp-content/uploads/2021/04/LogoSynthia-01-1.png"
         alt="Synthia - Inteligencia Artificial"
         width="140"
         height="44"
-        class="h-10 w-auto object-contain"
+        class="h-9 w-auto object-contain brightness-0 invert"
       />
     </a>
 
-    <!-- Botón hamburguesa (móvil) -->
-    <button
-      id="menu-toggle"
-      aria-label="Abrir menú"
-      aria-expanded="false"
-      aria-controls="mobile-menu"
-      class="bg-synthia-blue text-white p-2 rounded focus:outline-none focus:ring-2 focus:ring-synthia-green"
+    <!-- Botón Contacto -->
+    <a
+      href="#contacto"
+      class="text-sm font-semibold text-white border border-white/30 px-5 py-2 rounded-full
+             hover:bg-white/10 transition-colors duration-200"
     >
-      <!-- Ícono menú (☰) -->
-      <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-      <!-- Ícono cerrar (✕) -->
-      <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </button>
+      Contacto
+    </a>
 
-  </div>
-
-  <!-- Menú desplegable -->
-  <div
-    id="mobile-menu"
-    class="hidden bg-synthia-blue"
-    role="navigation"
-    aria-label="Menú principal"
-  >
-    <nav class="container-synthia py-4 flex flex-col gap-2">
-      {navLinks.map(link => (
-        <a
-          href={link.href}
-          class="text-white font-semibold text-lg px-4 py-3 rounded hover:bg-synthia-navy transition-colors"
-        >
-          {link.label}
-        </a>
-      ))}
-    </nav>
   </div>
 </header>
 
-<!-- Espacio para compensar el header fijo -->
-<div class="h-16"></div>
-
 <script>
-  const toggle = document.getElementById('menu-toggle');
-  const menu   = document.getElementById('mobile-menu');
-  const iconOpen  = document.getElementById('icon-open');
-  const iconClose = document.getElementById('icon-close');
-
-  function closeMenu() {
-    menu?.classList.add('hidden');
-    iconOpen?.classList.remove('hidden');
-    iconClose?.classList.add('hidden');
-    toggle?.setAttribute('aria-expanded', 'false');
-  }
-
-  toggle?.addEventListener('click', () => {
-    const isOpen = !menu?.classList.contains('hidden');
-    menu?.classList.toggle('hidden', isOpen);
-    iconOpen?.classList.toggle('hidden', !isOpen);
-    iconClose?.classList.toggle('hidden', isOpen);
-    toggle.setAttribute('aria-expanded', String(!isOpen));
-  });
-
-  // Cerrar menú al hacer click en un enlace
-  menu?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
-
-  // Sombra en el header al hacer scroll
   const header = document.getElementById('header');
   window.addEventListener('scroll', () => {
-    header?.classList.toggle('shadow-md', window.scrollY > 10);
+    if (window.scrollY > 20) {
+      header?.classList.add('bg-synthia-navy-dark/90', 'backdrop-blur-md', 'shadow-lg');
+    } else {
+      header?.classList.remove('bg-synthia-navy-dark/90', 'backdrop-blur-md', 'shadow-lg');
+    }
   }, { passive: true });
 </script>

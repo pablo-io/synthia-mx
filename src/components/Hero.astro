@@ -58,33 +58,54 @@ const slides = [
           class="absolute inset-0 w-full h-full object-cover"
           loading={i === 0 ? 'eager' : 'lazy'}
         />
-        <!-- Overlay oscuro -->
-        <div class="absolute inset-0 bg-synthia-navy/70"></div>
+        <!-- Overlay: gradiente oscuro (más denso en bordes, más abierto al centro) -->
+        <div class="absolute inset-0" style="background: radial-gradient(ellipse 90% 80% at 50% 50%, rgba(7,31,59,0.5) 0%, rgba(7,31,59,0.85) 100%)"></div>
+      </div>
+    ))}
 
-        <!-- Contenido centrado -->
-        <div class="relative z-10 flex flex-col items-center justify-center text-center px-6 h-full">
+    <!-- Halo de luz azul — capa persistente encima de todos los slides -->
+    <div
+      class="absolute inset-0 z-10 pointer-events-none"
+      style="background: radial-gradient(ellipse 70% 55% at 50% 35%, rgba(34,106,248,0.35) 0%, rgba(34,106,248,0.08) 55%, transparent 80%)"
+    ></div>
+
+    <!-- Contenido del slide activo — sobre el glow -->
+    <div class="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-6">
+      {slides.map((slide, i) => (
+        <div
+          class:list={[
+            'hero-content absolute inset-0 flex flex-col items-center justify-center text-center px-6 transition-opacity duration-700',
+            i === 0 ? 'opacity-100' : 'opacity-0',
+          ]}
+          data-content={i}
+        >
           <h1 class="text-4xl md:text-6xl font-extrabold text-white uppercase leading-tight max-w-4xl">
             {slide.title}
           </h1>
-          <!-- Divisor azul -->
           <span class="block w-40 h-1 bg-synthia-blue my-5"></span>
-          <p class="text-white text-base md:text-lg max-w-xl mb-8">
+          <p class="text-white/80 text-base md:text-lg max-w-xl mb-8">
             {slide.subtitle}
           </p>
           <a href={slide.href} class="btn-green">
             Conoce más <span aria-hidden="true">→</span>
           </a>
         </div>
-      </div>
-    ))}
+      ))}
+    </div>
 
-    <!-- Contenedor de altura (el slide absoluto no ocupa espacio) -->
-    <div class="h-[85vh] min-h-[500px]"></div>
+    <!-- Contenedor de altura -->
+    <div class="h-[90vh] min-h-[560px]"></div>
+
+    <!-- Fade de salida → fondo oscuro del body -->
+    <div
+      class="absolute bottom-0 left-0 right-0 h-40 pointer-events-none z-20"
+      style="background: linear-gradient(to bottom, transparent, #071F3B)"
+    ></div>
   </div>
 
   <!-- Puntos de navegación -->
   <div
-    class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-3"
+    class="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex gap-3"
     role="tablist"
     aria-label="Navegación de slides"
   >
@@ -106,24 +127,27 @@ const slides = [
 
 <script>
   // ─── Lógica del carrusel ───────────────────────────────────────────
-  const slides = document.querySelectorAll<HTMLElement>('.hero-slide');
-  const dots   = document.querySelectorAll<HTMLElement>('.hero-dot');
-  let current  = 0;
+  const slides   = document.querySelectorAll<HTMLElement>('.hero-slide');
+  const contents = document.querySelectorAll<HTMLElement>('.hero-content');
+  const dots     = document.querySelectorAll<HTMLElement>('.hero-dot');
+  let current    = 0;
   let timer: ReturnType<typeof setInterval>;
 
   function goTo(index: number) {
-    // Ocultar slide actual
     slides[current].classList.remove('opacity-100', 'z-10');
     slides[current].classList.add('opacity-0', 'z-0');
     slides[current].setAttribute('aria-hidden', 'true');
+    contents[current].classList.remove('opacity-100');
+    contents[current].classList.add('opacity-0');
     dots[current].classList.remove('bg-synthia-blue', 'scale-125');
     dots[current].classList.add('bg-white/50');
 
-    // Mostrar nuevo slide
     current = (index + slides.length) % slides.length;
     slides[current].classList.remove('opacity-0', 'z-0');
     slides[current].classList.add('opacity-100', 'z-10');
     slides[current].setAttribute('aria-hidden', 'false');
+    contents[current].classList.remove('opacity-0');
+    contents[current].classList.add('opacity-100');
     dots[current].classList.remove('bg-white/50');
     dots[current].classList.add('bg-synthia-blue', 'scale-125');
   }

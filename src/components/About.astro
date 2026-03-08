@@ -9,30 +9,35 @@ const content = {
     'Nos especializamos en ayudar a las empresas a alcanzar la excelencia operativa y materializar sus ideas o proyectos a través de Inteligencia Artificial con soluciones hechas a la medida de sus necesidades.',
   ],
   cta: { label: 'Contacto', href: '#contacto' },
-  // Reemplaza con la imagen real del robot mascota de Synthia
   robotImage: 'https://placehold.co/400x450/226AF8/ffffff?text=Synthia+Robot',
 };
 ---
 
-<section id="about" class="bg-synthia-blue" aria-label="Soluciones de Inteligencia Artificial">
+<section id="about" class="relative overflow-hidden" aria-label="Soluciones de Inteligencia Artificial">
 
-  <div class="container-synthia py-20 md:py-28">
+  <!-- Halo de luz azul lateral izquierdo -->
+  <div
+    class="absolute inset-0 pointer-events-none"
+    style="background: radial-gradient(ellipse 60% 70% at 15% 50%, rgba(34,106,248,0.25) 0%, transparent 70%)"
+  ></div>
+
+  <div class="relative container-synthia py-24 md:py-32">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
       <!-- Texto -->
       <div>
-        <p class="text-blue-200 text-lg font-semibold uppercase tracking-widest mb-1">
+        <p class="text-synthia-blue text-sm font-semibold uppercase tracking-widest mb-3">
           {content.eyebrow}
         </p>
         <h2 class="text-4xl md:text-5xl font-extrabold text-white uppercase leading-tight mb-6">
           {content.title}
         </h2>
         {content.body.map(paragraph => (
-          <p class="text-blue-100 text-base md:text-lg leading-relaxed mb-4">
+          <p class="text-white/70 text-base md:text-lg leading-relaxed mb-4">
             {paragraph}
           </p>
         ))}
-        <a href={content.cta.href} class="btn-navy mt-4 inline-flex">
+        <a href={content.cta.href} class="btn-blue mt-4 inline-flex">
           {content.cta.label} <span aria-hidden="true">→</span>
         </a>
       </div>
@@ -50,21 +55,6 @@ const content = {
       </div>
 
     </div>
-  </div>
-
-  <!-- Transición wave hacia la siguiente sección -->
-  <div class="overflow-hidden leading-none" style="height:80px; margin-bottom:-1px">
-    <svg
-      viewBox="0 0 1440 80"
-      xmlns="http://www.w3.org/2000/svg"
-      preserveAspectRatio="none"
-      class="w-full h-full"
-    >
-      <path
-        d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z"
-        fill="#071F3B"
-      />
-    </svg>
   </div>
 
 </section>

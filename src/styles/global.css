@@ -31,21 +31,29 @@
     @apply block w-24 h-1 bg-synthia-green mx-auto my-4;
   }
 
-  /* Botón CTA verde "Conoce más" */
+  /* Botón CTA verde */
   .btn-green {
-    @apply inline-flex items-center gap-2 bg-synthia-green text-white font-semibold
-           px-8 py-3 rounded transition-opacity hover:opacity-90;
+    @apply inline-flex items-center gap-2 font-semibold px-8 py-3 rounded-full
+           text-white border border-synthia-green/40
+           transition-all duration-200
+           hover:shadow-[0_0_18px_rgba(97,206,112,0.45)] hover:border-synthia-green/70;
+    background: linear-gradient(135deg, #61CE70, #3aaa50);
   }
 
-  /* Botón CTA oscuro "Contacto" */
+  /* Botón CTA oscuro */
   .btn-navy {
-    @apply inline-flex items-center gap-2 bg-synthia-navy text-white font-semibold
-           px-8 py-3 rounded transition-opacity hover:opacity-90;
+    @apply inline-flex items-center gap-2 font-semibold px-8 py-3 rounded-full
+           text-white border border-white/20
+           transition-all duration-200
+           hover:bg-white/10 hover:border-white/40;
   }
 
-  /* Botón CTA azul "Ver más" */
+  /* Botón CTA azul */
   .btn-blue {
-    @apply inline-flex items-center gap-2 bg-synthia-blue text-white font-semibold
-           px-6 py-2 rounded transition-opacity hover:opacity-90;
+    @apply inline-flex items-center gap-2 font-semibold px-6 py-2 rounded-full
+           text-white border border-synthia-blue/40
+           transition-all duration-200
+           hover:shadow-[0_0_18px_rgba(34,106,248,0.5)] hover:border-synthia-blue/70;
+    background: linear-gradient(135deg, #226AF8, #0014B0);
   }
 }
